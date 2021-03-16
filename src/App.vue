@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div>
-      <x-button @click="buttonClick" type="default">确认按钮</x-button>
-      <x-button type="primary">普通按钮</x-button>
+      <x-button @click="buttonClick" type="default" >确认按钮</x-button>
+      <x-button type="primary" disabled>普通按钮</x-button>
       <x-button type="success" icon="x-icon-refresh">圆角按钮</x-button>
     </div>
     <div>
