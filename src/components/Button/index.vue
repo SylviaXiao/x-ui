@@ -4,7 +4,6 @@
     :class="[
       `x-button--${type}`,
       `x-button--${size}`,
-      `x-button-color--${color}`,
       {
         'is-plain': plain,
         'is-round': round,
@@ -151,4 +150,3 @@ export default {
   cursor: not-allowed;
 }
 </style>
-++
