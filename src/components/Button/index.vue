@@ -3,6 +3,7 @@
     class="x-button"
     :class="[
       `x-button--${type}`,
+      `x-button--${size}`,
       {
         'is-plain': plain,
         'is-round': round,
@@ -20,6 +21,10 @@
 export default {
   name: 'x-button',
   props: {
+    size: {
+      type: String,
+      default: 'medium'
+    },
     type: {
       type: String,
       default: 'default'
