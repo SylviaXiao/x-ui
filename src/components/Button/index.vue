@@ -1,6 +1,9 @@
 <template>
-  <button class="x-button" :class="[`x-button--${type}`,{'is-plain': plain,'is-round': round}]">
-      <span><slot></slot></span>
+  <button class="x-button" :class="[`x-button--${type}`,{'is-plain': plain,'is-round': round}]"
+  @click="handleClick"
+  >
+      <i :class="icon"></i>
+      <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
 <script>
@@ -18,14 +21,22 @@ export default ({
     round: {
       type: Boolean,
       default: false
+    },
+    icon: {
+      type: String,
+      default: ''
+    }
+  },
+  created () {
+  },
+  methods: {
+    handleClick (e) {
+      this.$emit('click', e)
     }
   }
 })
 </script>
 <style scoped>
-.x-button{
-
-}
 .x-button--default{
     color: #000;
     background-color: #fff;
@@ -53,4 +64,8 @@ export default ({
 .x-button.is-round{
    border-radius: 30px;
 }
+.x-button [class*=x-icon-]+span{
+   margin-left: 5px;
+}
 </style>
+++

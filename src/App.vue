@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div>
-      <x-button type="default">确认按钮</x-button>
+      <x-button @click="buttonClick" type="default">确认按钮</x-button>
       <x-button type="primary">普通按钮</x-button>
-      <x-button type="success">圆角按钮</x-button>
+      <x-button type="success" icon="x-icon-refresh">圆角按钮</x-button>
     </div>
     <div>
       <x-button type="default" plain>确认按钮</x-button>
@@ -15,12 +15,25 @@
       <x-button type="primary" round>普通按钮</x-button>
       <x-button type="success" round>圆角按钮</x-button>
     </div>
+    <div>
+      <x-button type="default" icon="x-icon-close-1"></x-button>
+      <x-button type="primary" icon="x-icon-right"></x-button>
+      <x-button type="success" icon="x-icon-refresh"></x-button>
+    </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    buttonClick (e) {
+      console.log(e)
+    }
+  }
 }
 </script>
 <style>
+#App {
+  text-align: right;
+}
 </style>

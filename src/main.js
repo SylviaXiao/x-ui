@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Xbutton from './components/Button/index.vue'
+import './assets/fonts/style.css'
 Vue.config.productionTip = false
 Vue.component(Xbutton.name, Xbutton)
 /* eslint-disable no-new */
