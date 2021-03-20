@@ -8,14 +8,18 @@
         'is-plain': plain,
         'is-round': round,
         'is-disabled': disabled,
-      },
+        'is-loading': loading
+      }
     ]"
-    :style="`background:${color};`"
+    :style="color ? isColor : ''"
     @click="handleClick"
     :disabled="disabled"
   >
+    <i v-if="loading" class="x-icon-loading"></i>
     <i :class="icon"></i>
-    <span v-if="$slots.default"><slot></slot></span>
+    <span v-if="$slots.default">
+      <slot></slot>
+    </span>
   </button>
 </template>
 <script>
@@ -49,10 +53,30 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
-  created () {},
+  data () {
+    return {
+      isColor: ''
+    }
+  },
+  created () {
+    this.handleColor()
+  },
   methods: {
+    handleColor () {
+      if (this.color) {
+        if (this.plain) {
+          this.isColor = `background:#fff;color:${this.color};`
+        } else {
+          this.isColor = `background:${this.color};color:#fff;`
+        }
+      }
+    },
     handleClick (e) {
       this.$emit('click', e)
     }
@@ -110,14 +134,14 @@ export default {
   background-color: #f56c6c;
   border-color: #f56c6c;
 }
-[class*="x-button-color--"]{
- color: #fff;
- border: 0;
-}
-.is-plain{
-    background-color: #fff;
+[class*='x-button-color--'] {
+  color: #fff;
+  border: 0;
 }
 /* 朴素按钮 */
+.is-plain {
+  background-color: #fff;
+}
 .x-button--success.is-plain {
   color: #67c23a;
 }
@@ -138,15 +162,39 @@ export default {
   border-radius: 30px;
 }
 /* 按钮图标 */
-.x-button [class*="x-icon-"] + span {
+.x-button [class*='x-icon-'] + span {
   margin-left: 5px;
 }
-[class*="x-button-"]:focus, [class*="x-button-"]:hover {
- opacity: 0.8;
+[class*='x-button-']:focus,
+[class*='x-button-']:hover {
+  opacity: 0.8;
 }
 /* 禁用按钮 */
 .x-button.is-disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.x-button.is-loading {
+}
+.x-icon-loading {
+  animation: rotating 2s linear infinite;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
 }
 </style>
