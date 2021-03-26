@@ -1,6 +1,6 @@
 <template>
   <div id="Home">
-    <div>按钮</div>
+    <div @click="toDataURL">按钮</div>
     <div>导出</div>
   </div>
 </template>
@@ -10,7 +10,11 @@ export default {
   data () {
     return {}
   },
-  methods: {}
+  methods: {
+    toDataURL () {
+      this.$router.push(`/DocxExportImg`)
+    }
+  }
 }
 </script>
 <style>

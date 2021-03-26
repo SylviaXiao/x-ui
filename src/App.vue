@@ -14,6 +14,5 @@ export default {
 </script>
 <style>
 #App {
-  text-align: right;
 }
 </style>

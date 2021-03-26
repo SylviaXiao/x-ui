@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
   *导出docx
   *@param { String } tempDocxPath 模板文件路径
@@ -5,9 +6,11 @@
  * @param { String } fileName 导出文件名称
 */
 import Docxtemplater from 'docxtemplater'
+import ImageModule from 'docxtemplater-image-module-free'
 import PizZip from 'pizzip'
 import JSZipUtils from 'jszip-utils'
 import { saveAs } from 'file-saver'
+// 导出纯文档
 export const exportDocx = (tempDocxPath, data, fileName) => {
   // 读取并获得模板文件的二进制内容
   JSZipUtils.getBinaryContent(tempDocxPath, (error, content) => {
@@ -41,3 +44,5 @@ export const exportDocx = (tempDocxPath, data, fileName) => {
     saveAs(out, fileName)
   })
 }
+// 导出带图片的文档
+

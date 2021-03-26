@@ -55,6 +55,5 @@ export default {
 </script>
 <style>
 #docxExport {
-  text-align: right;
 }
 </style>
