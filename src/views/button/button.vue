@@ -68,6 +68,5 @@ export default {
 </script>
 <style>
 #button {
-  text-align: right;
 }
 </style>
