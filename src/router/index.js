@@ -46,6 +46,12 @@ export default new Router({
       name: 'map',
       component: () =>
         import('@/views/Map/index')
+    },
+    {
+      path: '/echarts',
+      name: 'echarts',
+      component: () =>
+        import('@/views/echarts/index')
     }
   ]
 })

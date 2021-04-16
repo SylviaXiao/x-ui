@@ -5,6 +5,7 @@
     <div @click="toTakePhotoURL">拍照</div>
     <div @click="toExportExcelURL">导出Excel</div>
     <div @click="toMap">高德地图</div>
+    <div @click="toEcharts">echarts图表</div>
   </div>
 </template>
 <script>
@@ -28,6 +29,9 @@ export default {
     },
     toMap () {
       this.$router.push(`/map`)
+    },
+    toEcharts () {
+      this.$router.push(`/echarts`)
     }
   }
 }
