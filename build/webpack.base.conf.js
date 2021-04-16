@@ -38,6 +38,9 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  externals: {
+    'AMap': 'AMap'
+  },
   module: {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),
@@ -91,6 +94,6 @@ module.exports = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty',
-    child_process: 'empty'
-  }
+    child_process: 'empty',
+  },
 }

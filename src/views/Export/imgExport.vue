@@ -100,16 +100,18 @@ export default {
     // 获取文件路径
     getStaticPath (appendPath) {
       // 模板文件放在静态目录下，需要从静态目录下获取路径
-      const origin = location.origin
-      const pathNameArr = location.pathname.split('\/')
-      const linkPath = pathNameArr.slice(0, pathNameArr.length - 2).join('\/')
-      const configFile = `${origin}${linkPath}${appendPath}`
-      return configFile
+      // const origin = location.origin
+      // const pathNameArr = location.pathname.split('\/')
+      // const linkPath = pathNameArr.slice(0, pathNameArr.length - 2).join('\/')
+      // const configFile = `${origin}${linkPath}${appendPath}`
+      // return configFile
+      return 1
     },
     // 导出图片表格
     exportDocx () {
       // 这个是导出的方法
-      let docxUrl = this.getStaticPath('/static/img.docx')
+      // let docxUrl = this.getStaticPath('/static/img.docx')
+      let docxUrl = '/static/img.docx'
       JSZipUtils.getBinaryContent(docxUrl, (err, content) => {
         if (err) {
           throw err

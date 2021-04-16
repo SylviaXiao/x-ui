@@ -40,6 +40,12 @@ export default new Router({
       name: 'ExcelExport',
       component: () =>
         import('@/views/Export/exportExcel')
+    },
+    {
+      path: '/map',
+      name: 'map',
+      component: () =>
+        import('@/views/Map/index')
     }
   ]
 })
